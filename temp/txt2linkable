@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+def pbcopy(input)
+	str = input.to_s
+	IO.popen('pbcopy', 'w') { |f| f << str }
+	str
+end
+
+output=''
+
+ARGV.each_with_index { |arg, index|
+	unless index == 0
+		output.concat('-')
+	end
+
+	output.concat(arg.downcase.gsub(/[^[:alnum:]]/,''))
+}
+
+pbcopy output
+print output
+
+print "\n"

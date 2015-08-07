@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# If today is between two dates (following the YYYY-MM-DD format), then return "success" (e.g. 0).
+# Else, return error (1).
+time_between() {
+	begin_date=$1
+	end_date=$2
+	today=`date '+%Y-%m-%d'`
+
+	# Bash (usually) has no '>=' or '<=' when it comes to string comparison, so
+	# we compare separately as a workaround.
+	if [[ "$today" == "$begin_date" || "$today" > "$begin_date" && "$today" < "$end_date" || "$today" == "$end_date" ]]; then
+		return 0
+	fi
+
+	return 1
+}
+
+# We expect the file to contain the following (separated by tabs, or set IFS=, for CSV)
+# Start time (YYYY-MM-DD)        End time (YYYY-MM-DD)        Name/string to display if between those times
+while read beg end name; do
+	if time_between "$beg" "$end"; then
+		echo $name
+
+		# Comment this if there could possibly be more than one string to display
+		exit 0
+	fi
+done < "$HOME/Desktop/queue-king.txt"
+
+echo 'No one found for today.' >&2
+exit 1
