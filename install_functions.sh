@@ -5,7 +5,7 @@ get_os() {
 		linux*) echo 'Linux';;
 		cygwin*) echo 'Cygwin';;
 		msys*) echo 'MinGW';;
-		freebsd*) echo 'FreeBSD';;
+		*bsd*) echo 'BSD-based';;
 		*) echo 'unknown';;
 	esac
 }
