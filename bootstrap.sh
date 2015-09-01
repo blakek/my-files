@@ -1,9 +1,10 @@
 #!/bin/bash
 
 export basedir=$(cd $(dirname "$0") && pwd)
+export libdir="${basedir}/common/_home/bin/lib"
 export last_bootstrap_file="${basedir}/.last-bootstrap"
 
-source $basedir/mylog.sh
+source $libdir/mylog.sh
 source $basedir/install_functions.sh
 
 # Basic information and setup
