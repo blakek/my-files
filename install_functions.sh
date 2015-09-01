@@ -18,6 +18,14 @@ is_installed() {
 	}
 }
 
+timestamp2pretty() {
+	if [[ $OS_NAME == 'OS X' || $OS_NAME == 'BSD-based' ]]; then
+		echo $(date -r $1)
+	else
+		echo $(date -d @$1)
+	fi
+}
+
 # Ensure there are no uncommitted/unstaged changes in a git repo before working on it
 require_clean_directory() {
 	# Update the index
