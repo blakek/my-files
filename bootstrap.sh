@@ -22,7 +22,7 @@ fi
 
 piinfo 'Checking this repo: '
 if $(require_clean_directory upgrade); then
-	piinfo 'ready to bootstrap'
+	pinfo 'ready to bootstrap'
 else
 	pwarn 'Please clean up directory (e.g. `git checkout -- .`) and try again'
 	exit 2
