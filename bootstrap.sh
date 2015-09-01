@@ -37,7 +37,7 @@ if [ "$new_updates_available" != "" ]; then
 	pinfo 'Updating to latest version...'
 
 	git checkout -- .
-	git pull --progress
+	git pull --progress || exit 3
 fi
 
 # date +%s > last_update_file
