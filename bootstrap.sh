@@ -41,4 +41,10 @@ if [ "$new_updates_available" != "" ]; then
 	git pull --progress || exit 3
 fi
 
-# date +%s > last_update_file
+# Actual installation of our files
+pheader 'Installing files...'
+
+pwarn 'Not yet implemented'
+
+date +%s > $last_bootstrap_file
+pokay 'DONE!'
