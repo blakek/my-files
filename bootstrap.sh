@@ -46,8 +46,8 @@ fi
 pheader 'Installing files...'
 
 pwarn 'Not yet implemented'
-for f in "$basedir/execute/parallel/*"; do
-	bash "$f" &
+for f in "${basedir}/execute/parallel/*"; do
+	$f &
 done
 
 date +%s > $last_bootstrap_file
