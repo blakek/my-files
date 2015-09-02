@@ -74,4 +74,4 @@ install_fake() {
 	fi
 }
 
-OS_NAME=$(get_os)
+export OS_NAME=$(get_os)
