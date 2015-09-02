@@ -2,6 +2,8 @@ fileName="$HOME/.bash_aliases"
 source $libdir/mylog.sh
 source $basedir/install_functions.sh
 
+pinfo 'Creating .bash_aliases'
+
 if [ -f $fileName ]; then
 	mv $fileName ${fileName}.backup
 fi
